@@ -15,7 +15,6 @@
     <description>RESTful API for messaging service</description>
 
     <properties>
-        <docker.image.prefix>pvimalmec</docker.image.prefix>
         <java.version>1.8</java.version>
         <springfox.version>2.9.2</springfox.version>
     </properties>
@@ -73,32 +72,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- tag::plugin[] -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.9</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-            <!-- end::plugin[] -->
-
-
-        </plugins>
+         </plugins>
     </build>
 
 
